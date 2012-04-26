@@ -1004,6 +1004,7 @@ int input_buttons()
         end_draw = 149;
     }
     
+#if 0
     if ((touch_x > (gr_fb_width() - 96)) && (touch_y > 0)) {
         pthread_mutex_lock(&gUpdateMutex);
         gr_color(0, 0, 0, 255);     // clear old touch points
@@ -1014,6 +1015,7 @@ int input_buttons()
         gr_flip();
         pthread_mutex_unlock(&gUpdateMutex);
     }
+#endif
     
     if (in_touch == 0) {
         return final_code;
