@@ -87,7 +87,7 @@ static const struct { gr_surface* surface; const char *name; } BITMAPS[] = {
     { &gProgressBarEmpty,               "progress_empty" },
     { &gProgressBarFill,                "progress_fill" },
     { &gVirtualKeys,			"virtual_keys" },
-    { &gBackground,		q	"stitch" },
+    { &gBackground,			"stitch" },
     { NULL,                             NULL },
 };
 
@@ -334,10 +334,12 @@ static void draw_screen_locked(void)
 
 
             if (menu_items <= max_menu_rows)
-                offset = 1;
+                //offset = 1;
 
-            gr_fill(0, (row-offset)*CHAR_HEIGHT+CHAR_HEIGHT/2-1,
-                    gr_fb_width() - 96, (row-offset)*CHAR_HEIGHT+CHAR_HEIGHT/2+1);
+//            gr_fill(0, (row-offset)*CHAR_HEIGHT+CHAR_HEIGHT/2-1,
+//                    gr_fb_width() - 96, (row-offset)*CHAR_HEIGHT+CHAR_HEIGHT/2+1);
+            gr_fill(0, row*CHAR_HEIGHT+CHAR_HEIGHT/2-1,
+                    gr_fb_width()-96, row*CHAR_HEIGHT+CHAR_HEIGHT/2+1);
 #else
             row = draw_touch_menu(menu, menu_items, menu_top, menu_sel, menu_show_start);
 #endif
